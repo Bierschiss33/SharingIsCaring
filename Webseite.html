@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Besucherzähler</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f3f3f3;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .container {
+            background: #ffffff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .counter {
+            font-size: 18px;
+            margin-top: 20px;
+            color: #333333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Sorry für Bait :(</h1>
+        <p>MP2 von Denki lässt grüßen<br>Wär cool, wenn dus nicht auffliegen lässt!</p>
+        <div class="counter">
+            Besucher: <span id="visitorCount">0</span>
+        </div>
+    </div>
+
+    <script>
+        // Funktion, um den Besucherzähler zu aktualisieren
+        function updateVisitorCount() {
+            // Abrufen des aktuellen Zählers aus dem Local Storage
+            let count = localStorage.getItem('visitorCount');
+
+            // Wenn noch kein Wert existiert, auf 0 setzen
+            if (count === null) {
+                count = 0;
+            }
+
+            // Den Zähler um 1 erhöhen
+            count = parseInt(count) + 1;
+
+            // Den neuen Wert im Local Storage speichern
+            localStorage.setItem('visitorCount', count);
+
+            // Den Zähler im HTML anzeigen
+            document.getElementById('visitorCount').textContent = count;
+        }
+
+        // Aufrufen der Funktion beim Laden der Seite
+        updateVisitorCount();
+    </script>
+</body>
+</html>
